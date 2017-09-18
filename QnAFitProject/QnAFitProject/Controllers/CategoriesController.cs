@@ -10,12 +10,18 @@ namespace QnAFitProject.Controllers
 {
     public class CategoriesController : Controller
     {
+        /*
+         * 2 fields. The first one is the interface repository for category
+         * The second field is for my DbContext where I instance it
+         */
         private ICategoryRep<Category> categoryRep = null;
         private FitnessDbContext db = new FitnessDbContext();
 
         public CategoriesController()
         {
-            this.categoryRep = new CategoryRep<Category>();
+            // I set categoryRep field to CategorynRep with the included Category
+            //that comes from the model class Category
+            categoryRep = new CategoryRep<Category>();
         }
 
         // GET: Categories

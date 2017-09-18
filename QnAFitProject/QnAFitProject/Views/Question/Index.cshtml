@@ -1,0 +1,58 @@
+﻿@model IEnumerable<QnAFitProject.Models.Question>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Questions</h2>
+
+<p>
+    @Html.ActionLink("Create New question", "Create")
+</p>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Select category: @Html.DropDownList("SelectedCategory", null, new { @class = "btn btn-default dropdown-toggle" })
+        <input type="submit" class ="btn btn-warning" value="Filter" />
+    </p>
+}
+
+<div class="container">
+    <table class="table table-bordered">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Text)
+            </th>
+            <th>
+                Category
+            </th>
+            <th>
+                
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.TextAreaFor(modelItem => item.Text, new { @class = "form-control", @rows = 10, @readonly = true })
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category.Name)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.QuestionID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.QuestionID })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

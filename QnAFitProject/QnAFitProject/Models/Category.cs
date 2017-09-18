@@ -9,9 +9,13 @@ namespace QnAFitProject.Models
     public class Category
     {
         [Key]
-        public int ID { get; set; }
+        //primary key
+        public int CategoryID { get; set; }
 
         [Required]
         public string Name { get; set; }
+
+        //Navigation property
+        //public virtual Question Question { get; set; }
     }
 }

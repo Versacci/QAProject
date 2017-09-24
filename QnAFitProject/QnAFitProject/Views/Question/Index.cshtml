@@ -39,10 +39,13 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Title)
-                </td>
+                        @Html.ActionLink(item.Title, "Create", "Answer")
+               </td>
                 <td>
-                    @Html.TextAreaFor(modelItem => item.Text, new { @class = "form-control", @rows = 10, @readonly = true })
+                    @Html.TextAreaFor(modelItem => item.Text, new
+               {
+                   @class = "form-control", @rows = 10, @readonly = true
+               })
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Category.Name)

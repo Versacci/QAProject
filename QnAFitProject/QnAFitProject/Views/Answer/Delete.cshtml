@@ -1,0 +1,47 @@
+﻿@model QnAFitProject.Models.Answer
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+
+<h3>Are you sure you want to delete Answer?</h3>
+<div>
+    <hr />
+    <dl class="form-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Question.Title)
+        </dt>
+
+        <dd>
+            @Html.EditorFor(model => model.Question.Title, new { htmlAttributes = new { @class = "form-control", @readonly = true } })
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Question.Text)
+        </dt>
+
+        <dd>
+            @Html.TextAreaFor(model => model.Question.Text, new { @class = "form-control", @rows = 10, @readonly = true })
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Text)
+        </dt>
+
+        <dd>
+            @Html.TextAreaFor(model => model.Text, new { @class = "form-control", @rows = 10, @readonly = true })
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

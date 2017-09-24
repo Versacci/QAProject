@@ -1,0 +1,55 @@
+﻿@model IEnumerable<QnAFitProject.Models.Answer>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Answers</h2>
+
+
+<div class="container">
+    <table class="table table-bordered">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Question.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Question.Text)
+            </th>
+            <th>
+                Answer
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Question.Title)
+                </td>
+                <td>
+                    @Html.TextAreaFor(modelItem => item.Question.Text, new
+           {
+               @class = "form-control",
+               @rows = 10,
+               @readonly = true
+           })
+                </td>
+                <td>
+                    @Html.TextAreaFor(modelItem => item.Text, new
+           {
+               @class = "form-control",
+               @rows = 10,
+               @readonly = true
+           })
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.AnswerID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.AnswerID })
+                </td>
+            </tr>
+        }
+
+    </table>
+    </div>

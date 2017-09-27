@@ -8,6 +8,9 @@ namespace QnAFitProject
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
+
+            //Make it required to login to use the web application
+            filters.Add(new AuthorizeAttribute());
         }
     }
 }

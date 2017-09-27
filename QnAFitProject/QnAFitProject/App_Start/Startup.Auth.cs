@@ -54,15 +54,15 @@ namespace QnAFitProject
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "226471891218554",
+               appSecret: "a963527759286e4d8d08578598824106");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "891519348778-50r9nv17srd82ck31hn1e97g5tgp2k03.apps.googleusercontent.com",
+                ClientSecret = "6RVlCLM3_mKhsl-p-3I5Vwuo"
+            });
         }
     }
 }
